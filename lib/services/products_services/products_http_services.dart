@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:may29/models/product_model.dart';
+import 'package:may29/models/products_models/product_model.dart';
 import 'package:http/http.dart' as http;
 
 class ProductsHttpServices {
@@ -14,15 +14,9 @@ class ProductsHttpServices {
       for (int i = 0; i < data.length; i++) {
         products.add(ProductModel.fromJson(data[i] as Map<String, dynamic>));
       }
-      print(products.length);
       return products;
     } else {
       throw Exception('error: http product server');
     }
   }
 }
-
-// void main() async {
-//   var s = ProductsHttpServices();
-//   await s.getProducts();
-// }
